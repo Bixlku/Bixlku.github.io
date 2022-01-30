@@ -188,7 +188,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-30 22:53:51 / 修改时间：22:51:34" itemprop="dateCreated datePublished" datetime="2022-01-30T22:53:51+08:00">2022-01-30</time>
+              <time title="创建时间：2022-01-30 22:53:51 / 修改时间：23:26:58" itemprop="dateCreated datePublished" datetime="2022-01-30T22:53:51+08:00">2022-01-30</time>
             </span>
 
           
@@ -326,6 +326,7 @@
 <h4 id="封装与构造器"><a href="#封装与构造器" class="headerlink" title="封装与构造器"></a>封装与构造器</h4><p>将set方法写在构造器中，仍然可以起到防护的机制</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="comment">//this.age = age;</span></span><br><span class="line">    <span class="comment">//this.name = name; 这样不好</span></span><br><span class="line">    setName(name);<span class="comment">//这样更好</span></span><br><span class="line">    setAge(age);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 <h3 id="继承（extends）"><a href="#继承（extends）" class="headerlink" title="继承（extends）"></a>继承（extends）</h3><p>用于解决代码复用问题。多个类存在相同的属性（变量）和方法时，可以从这些类中抽象出父类（超类），在父类中定义这些相同的属性和方法，所有的子类不需要再重新定义这些属性和方法，只需要通过extends来声明继承父类即可。</p>
+<p><strong>继承设计的基本思想</strong>：父类构造器完成父类属性初始化，子类构造器完成子类属性初始化</p>
 <p><img src="http://yyh-blogimage.oss-cn-shanghai.aliyuncs.com/img/image-20220130165109518.png" alt="image-20220130165109518" style="zoom:45%;" /></p>
 <h4 id="继承的基本语法"><a href="#继承的基本语法" class="headerlink" title="继承的基本语法"></a>继承的基本语法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 子类 <span class="keyword">extends</span> 父类</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
@@ -372,6 +373,18 @@
 <p>输出的是</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a的无参构造器</span><br><span class="line">b的有参构造器</span><br><span class="line">b的无参构造器</span><br></pre></td></tr></table></figure>
 <p>首先从进入B无参构造器的this中，<strong>注意此处由于B的无参构造器有<code>this</code>，因此此处的默认的<code>super()</code>也消失了,所以他直接进入了<code>this</code>而没有处理<code>super()</code></strong>。然后进入B的有参构造器，此处有一个默认的<code>super()</code>，所以进入A的无参构造器，而后输出B的有参构造器中的内容。最后回到B的无参构造器，输出其内容。记住，<strong>所有构造器在没有this存在的时候都有一个默认的super()</strong></p>
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><p>super代表父类的引用，用于访问父类的属性、方法、构造器</p>
+<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><ol>
+<li><p>访问父类的属性，但不能访问父类的private属性</p>
+<p><code>super.属性名</code></p>
+</li>
+<li><p>访问父类的方法，但不能访问父类的private方法</p>
+<p><code>super.方法名(参数列表)</code></p>
+</li>
+<li><p>访问父类的构造器（这点前面用过）：</p>
+<p><code>super(参数列表);</code>只能用在构造器的第一句，只能出现一句。</p>
+</li>
+</ol>
 
       
     </div>
