@@ -1,6 +1,9 @@
 /* global CONFIG */
+import codeUnfold from './code-unfold';
+
 
 document.addEventListener('DOMContentLoaded', () => {
+
   // Popup Window
   let isfetched = false;
   let datas;
@@ -14,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const input = document.querySelector('.search-input');
   const resultContent = document.getElementById('search-result');
+  codeUnfold();
+  
+
 
   const getIndexByWord = (word, text, caseSensitive) => {
     if (CONFIG.localsearch.unescape) {
