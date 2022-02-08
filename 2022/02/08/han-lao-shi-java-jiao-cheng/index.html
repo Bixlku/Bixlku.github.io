@@ -447,28 +447,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-07
+                    2022-02-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-07
+                    2022-02-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    19 分
                 </div>
                 
 
@@ -591,6 +591,25 @@
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>this.name</code>访问的一定是类的属性，而<code>name</code>则有可能访问的是成员方法的局部变量</p>
+<h3 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h3><ol>
+<li><p>静态初始化</p>
+<p>在定义数组的同时对数组元素进行初始化</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BankAccount</span><span class="token punctuation">[</span><span class="token punctuation">]</span> accounts <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token keyword">new</span> <span class="token class-name">BankAccount</span><span class="token punctuation">(</span>“<span class="token class-name">Zhang</span>"<span class="token punctuation">,</span> <span class="token number">100.00</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+<span class="token keyword">new</span> <span class="token class-name">BankAccount</span><span class="token punctuation">(</span>“<span class="token class-name">Li</span>"<span class="token punctuation">,</span> <span class="token number">2380.00</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>动态初始化</p>
+<ul>
+<li><p>使用运算符new为数组分配空间 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">type<span class="token punctuation">[</span> <span class="token punctuation">]</span> arrayName<span class="token operator">=</span><span class="token keyword">new</span> type<span class="token punctuation">[</span>arraySize<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>只是对象数组本身分配空间，并<strong>没有对数组元素进行初始化</strong>，即<strong>数组元素均为空</strong>，因此下列程序会报错</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Person</span><span class="token punctuation">[</span><span class="token punctuation">]</span> people <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        people<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">"yyh"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+</ol>
 <h2 id="面向对象（中级）"><a href="#面向对象（中级）" class="headerlink" title="面向对象（中级）"></a>面向对象（中级）</h2><h3 id="IDEA编译器"><a href="#IDEA编译器" class="headerlink" title="IDEA编译器"></a>IDEA编译器</h3><h4 id="IDEA快捷键"><a href="#IDEA快捷键" class="headerlink" title="IDEA快捷键"></a>IDEA快捷键</h4><ol>
 <li>删除当前行<code>ctrl+d</code></li>
 <li>复制当前行<code>ctrl+alt+向下光标</code></li>
@@ -968,6 +987,40 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
 <li>垃圾回收机制的调用，是由系统来决定（即有自己的GC算法），也可以通过<code>System.gc()</code>主动触发垃圾回收机制</li>
 </ol>
 <h3 id="零钱通"><a href="#零钱通" class="headerlink" title="零钱通"></a>零钱通</h3><p><a target="_blank" rel="noopener" href="https://github.com/Bixlku/JavaStudyCode/tree/main/SmallChange">零钱通示例代码</a></p>
+<h3 id="房屋出租"><a href="#房屋出租" class="headerlink" title="房屋出租"></a>房屋出租</h3><p><a target="_blank" rel="noopener" href="https://github.com/Bixlku/JavaStudyCode/tree/main/HouseRent">房屋出租示例代码</a></p>
+<h2 id="面向对象（高级）"><a href="#面向对象（高级）" class="headerlink" title="面向对象（高级）"></a>面向对象（高级）</h2><h3 id="类变量（静态变量）"><a href="#类变量（静态变量）" class="headerlink" title="类变量（静态变量）"></a>类变量（静态变量）</h3><ol>
+<li>类变量由同一个类所有对象共享</li>
+<li>类变量在类加载的时候就生成了</li>
+</ol>
+<h4 id="类变量使用细节"><a href="#类变量使用细节" class="headerlink" title="类变量使用细节"></a>类变量使用细节</h4><ol>
+<li><p>什么时候使用类变量</p>
+<p>当我们需要让某个类的所有对象都共享一个变量时，就可以考虑使用类变量（静态变量）</p>
+</li>
+<li><p>加上<code>static</code>称为类变量或静态变量，否则成为实例变量/普通变量/非静态变量</p>
+</li>
+<li><p>类变量可以通过 <code>类名.类变量名</code> 访问或者 <code>对象名.类变量名</code> 来访问，推荐使用 <code>类名.类变量名</code> 访问</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Person</span><span class="token punctuation">.</span>id<span class="token comment">//更好</span>
+<span class="token class-name">Jack</span><span class="token punctuation">.</span>id<span class="token comment">//不推荐</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h3 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h3><h4 id="类方法基本介绍"><a href="#类方法基本介绍" class="headerlink" title="类方法基本介绍"></a>类方法基本介绍</h4><p>类方法也叫静态方法，形式如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">访问修饰符 <span class="token keyword">static</span> 数据返回类型 方法名<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span> 【推荐】<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>调用方式：</p>
+<pre class="line-numbers language-none"><code class="language-none">类名.类方法名&#x2F;对象名.类方法名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="类方法经典的使用场景"><a href="#类方法经典的使用场景" class="headerlink" title="类方法经典的使用场景"></a>类方法经典的使用场景</h4><p>当方法中<strong>不涉及到任何和对象相关的成员</strong>，则可以将方法设计成静态方法，提高开发效率。（例如工具类(<code>utils类</code>)、Math类、Arrays类。。。。。）即把方法当作工具使用，无需创建对象。</p>
+<h4 id="类方法注意事项和细节讨论"><a href="#类方法注意事项和细节讨论" class="headerlink" title="类方法注意事项和细节讨论"></a>类方法注意事项和细节讨论</h4><ol>
+<li><p>类方法和普通方法都是随着类的加载而加载，将结构信息存储在方法区：</p>
+<p>类方法无<code>this</code>参数，普通方法隐含<code>this</code>参数</p>
+</li>
+<li><p>类方法可以通过类名调用，也可以通过对象名调用；普通方法和对象有关，需要通过对象名调用</p>
+</li>
+<li><p>类方法不允许使用和<strong>对象</strong>有关的关键字（fff！！），比如<code>this</code>和<code>super</code>。普通方法（成员方法）则可以</p>
+</li>
+<li><p>类方法（静态方法）<strong>只能访问</strong> 静态变量 或 静态方法</p>
+</li>
+<li><p>普通成员方法，既可以非静态成员，也可以访问静态成员</p>
+</li>
+</ol>
 
                 
             </div>
@@ -994,7 +1047,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Bixlku.github.io/2022/02/07/han-lao-shi-java-jiao-cheng/">http://Bixlku.github.io/2022/02/07/han-lao-shi-java-jiao-cheng/</a>
+                    <a href="http://Bixlku.github.io/2022/02/08/han-lao-shi-java-jiao-cheng/">http://Bixlku.github.io/2022/02/08/han-lao-shi-java-jiao-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1208,7 +1261,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/02/07/han-lao-shi-java-jiao-cheng/">
+                <a href="/2022/02/08/han-lao-shi-java-jiao-cheng/">
                     <div class="card-image">
                         
                         
@@ -1225,7 +1278,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
                             </span>
                         <span class="publish-author">
                             
@@ -1434,7 +1487,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.2k</span>&nbsp;字
+                class="white-color">5.8k</span>&nbsp;字
             
             
             
