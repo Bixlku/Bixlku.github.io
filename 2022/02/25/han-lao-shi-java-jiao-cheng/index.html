@@ -447,28 +447,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-20
+                    2022-02-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-20
+                    2022-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.2k
+                    10.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    33 分
+                    37 分
                 </div>
                 
 
@@ -1389,7 +1389,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
 </li>
 <li><p>一个类同时可以实现多个接口</p>
 </li>
-<li><p><strong>接口中的属性</strong>只能是final的，而且是public static final 修饰符。比如</p>
+<li><p><strong>接口中的属性</strong>只能是final的，而且是<strong>public static final</strong> 修饰符。比如</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">在接口中
 <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//实际上是public static final int a =1;（必须初始化）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
@@ -1401,6 +1401,88 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
 <li><p>接口的修饰符只能是public或者默认，这点和类的修饰符是一样的</p>
 </li>
 </ol>
+<h4 id="实现接口-vs-继承类"><a href="#实现接口-vs-继承类" class="headerlink" title="实现接口 vs 继承类"></a>实现接口 vs 继承类</h4><p>接口和继承解决的问题不同</p>
+<ul>
+<li>接口的价值主要在于：解决代码的复用性和可维护性</li>
+<li>接口的价值主要在于：设计，设计好各种规范（方法），让其他类去实现这些方法</li>
+</ul>
+<p>接口比继承更加灵活，继承需要满足 is-a 的关系，而接口只需满足 like-a 的关系</p>
+<p>接口在一定程度上实现代码解耦 [即： 接口规范性+动态绑定]</p>
+<h4 id="接口的多态性"><a href="#接口的多态性" class="headerlink" title="接口的多态性"></a>接口的多态性</h4><ol>
+<li><p>多态参数</p>
+</li>
+<li><p>多态数组</p>
+</li>
+<li><p>多态接口传递</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InterfacePoly</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">IF</span> if01 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">IH</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//如果IG 继承了 IH接口，而Teacher类实现了 IG接口</span>
+        <span class="token comment">//那么，实际上就相当于Teacher类也实现了 IH接口</span>
+        <span class="token comment">//这就是所谓的接口多态传递现象</span>
+        <span class="token class-name">IG</span> ig01 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">IH</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> IG<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">interface</span> IF <span class="token keyword">extends</span> IG<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> IH <span class="token keyword">implements</span> IF<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h4 id="类定义的进一步完善"><a href="#类定义的进一步完善" class="headerlink" title="类定义的进一步完善"></a>类定义的进一步完善</h4><p><img src="http://yyh-blogimage.oss-cn-shanghai.aliyuncs.com/img/image-20220225110910353.png" alt="image-20220225110910353" style="zoom: 33%;" /></p>
+<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><p>一个类的内部又完整的嵌套了另一个类结构。被嵌套的类称为内部类（inner class），嵌套其他类的类称为外部类（outer class）。是我们类的第五大成员[属性、方法、构造器、代码块、内部类]，内部类的最大特点是可以直接访问私有属性，并且可以体现类与类之间的包含关系。</p>
+<h4 id="基本语法-2"><a href="#基本语法-2" class="headerlink" title="基本语法"></a>基本语法</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Outer</span><span class="token punctuation">&#123;</span><span class="token comment">//外部类</span>
+    <span class="token keyword">class</span> inner<span class="token punctuation">&#123;</span><span class="token comment">//内部类</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">Other</span><span class="token punctuation">&#123;</span><span class="token comment">//外部其他类 </span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="内部类的分类"><a href="#内部类的分类" class="headerlink" title="内部类的分类"></a>内部类的分类</h4><p>定义在外部类局部位置上：</p>
+<ul>
+<li>局部内部类（有类名）</li>
+<li><strong>匿名内部类</strong>（没有内部类，重点！）</li>
+</ul>
+<p>定义在外部类的成员位置上：</p>
+<ul>
+<li>成员内部类（没有static修饰）</li>
+<li>静态内部类（使用static修饰）</li>
+</ul>
+<h4 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h4><p>局部内部类是定义在外部类的局部位置，比如方法中，并且有类名</p>
+<ol>
+<li>可以直接访问外部类的所有成员，包括私有的</li>
+<li>不能添加访问修饰符，但是可以使用<code>final</code>修饰。因为它的地位就是一个局部变量，局部变量不能使用修饰符</li>
+<li><strong>作用域</strong>：仅仅在定义它的方法或代码块中</li>
+<li>局部内部类—-访问—-&gt;外部类的成员 【访问方式：直接访问】</li>
+<li>外部类—-访问—-&gt;局部内部类的成员 【访问方式：创建对象，再访问（注意：必须在作用域内）】</li>
+<li>外部其他类—-<strong>不能访问</strong>—-&gt;局部内部类（因为局部内部类地位是一个<strong>局部变量</strong>）</li>
+<li>如果外部类和局部内部类的成员重名时，默认遵循<strong>就近原则</strong>，如果想访问外部类的成员，则可以使用<code>外部类名.this.成员</code>去访问</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LocalInnerClass</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Outer02</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">m2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">m1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//方法</span>
+        <span class="token keyword">class</span> <span class="token class-name">Inner02</span> <span class="token punctuation">&#123;</span><span class="token comment">//局部内部类，本质还是一个类</span>
+            <span class="token comment">//可以直接访问外部类的所有成员，包含私有的</span>
+            <span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//局部内部类可以直接访问外部类的成员，例如n1和m2</span>
+                <span class="token comment">//如果外部类和局部内部类的成员重名时，默认遵循就近原则</span>
+                <span class="token comment">//如果想访问外部类的成员，则可以使用`外部类名.this.成员`去访问</span>
+                <span class="token comment">//Outer02.this 表示的本质就是外部类的对象，即哪个对象调用了m1，Outer02.this就是哪个对象</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"n1="</span> <span class="token operator">+</span> n1 <span class="token operator">+</span> <span class="token string">"外部类的n1="</span> <span class="token operator">+</span><span class="token class-name">Outer02</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>n1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">m2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//需要创建Outer类的对象再进行访问</span>
+        <span class="token class-name">Outer02</span> outer02 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Outer02</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>outer02<span class="token punctuation">.</span>n1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1427,7 +1509,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Bixlku.github.io/2022/02/20/han-lao-shi-java-jiao-cheng/">http://Bixlku.github.io/2022/02/20/han-lao-shi-java-jiao-cheng/</a>
+                    <a href="http://Bixlku.github.io/2022/02/25/han-lao-shi-java-jiao-cheng/">http://Bixlku.github.io/2022/02/25/han-lao-shi-java-jiao-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1641,7 +1723,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/02/20/han-lao-shi-java-jiao-cheng/">
+                <a href="/2022/02/25/han-lao-shi-java-jiao-cheng/">
                     <div class="card-image">
                         
                         
@@ -1658,7 +1740,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-25
                             </span>
                         <span class="publish-author">
                             
@@ -1867,7 +1949,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">10.4k</span>&nbsp;字
             
             
             
