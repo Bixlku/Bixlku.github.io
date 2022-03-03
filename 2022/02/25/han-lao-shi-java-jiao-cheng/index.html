@@ -454,21 +454,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-25
+                    2022-03-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.1k
+                    11.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    37 分
+                    42 分
                 </div>
                 
 
@@ -581,7 +581,13 @@
 <p>构造器并不创建对象，而是对对象进行初始化</p>
 <h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p>this指当前对象自己</p>
 <p>简单地说，哪个对象调用，this就代表了哪个对象</p>
-<p><img src="http://yyh-blogimage.oss-cn-shanghai.aliyuncs.com/img/image-20220129134431413.png" alt="image-20220129134431413" style="zoom:45%;" /></p>
+<h4 id="this的注意事项和使用细节"><a href="#this的注意事项和使用细节" class="headerlink" title="this的注意事项和使用细节"></a>this的注意事项和使用细节</h4><ol>
+<li>this关键字可以用来访问本类的属性、方法、构造器</li>
+<li>this用于区分当前类的属性和局部变量</li>
+<li>访问成员方法的语法：<code>this.方法名(参数列表)</code></li>
+<li>访问构造器的语法：<code>this(参数列表)</code>。<strong>注意只能在构造器中使用</strong>（即只能在构造器中访问另外一个构造器，必须放在第一条语句）</li>
+<li>this不能在类定义的外部使用，只能在类定义的方法中使用</li>
+</ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//构造器语法:this(参数列表)；必须放置于第一条语句</span>
 <span class="token keyword">public</span> <span class="token class-name">T</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token string">"jack"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//只能在构造器中使用这种语法，其他成员方法不得使用</span>
@@ -978,9 +984,8 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
         <span class="token class-name">A</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//40->30</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">sum1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//30->20</span>
-
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
@@ -988,7 +993,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
         <span class="token keyword">return</span> <span class="token function">getI</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getI</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> i <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">sum1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> i <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
@@ -1381,7 +1386,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
 <h4 id="注意事项和细节"><a href="#注意事项和细节" class="headerlink" title="注意事项和细节"></a>注意事项和细节</h4><ol>
 <li><p>接口不能被实例化</p>
 </li>
-<li><p>接口中所有的方法都是public方法，接口中抽象方法，可以不用abstract修饰</p>
+<li><p>接口中所有的方法都是<strong>public</strong>方法，接口中抽象方法，可以不用abstract修饰</p>
 </li>
 <li><p>一个普通类实现接口，就必须将该接口的所有方法都实现（IDEA中可以用<code>alt</code>+<code>enter</code>解决）</p>
 </li>
@@ -1483,6 +1488,126 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>outer02<span class="token punctuation">.</span>n1<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="匿名内部类-重点"><a href="#匿名内部类-重点" class="headerlink" title="匿名内部类(重点)"></a>匿名内部类(重点)</h4><p>（1）本质是类 （2）内部类 （3）该类没有名字 （4）同时还是一个对象</p>
+<p>匿名内部类是定义在外部类的局部位置，比如方法中，并且没有类名的内部类</p>
+<ol>
+<li><p>匿名内部类的基本语法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> 类或接口<span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    类体
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>匿名内部类的语法比较奇特，请注意，因为匿名内部类既是一个类的定义，同时它本身也是一个对象，因此从语法上看，它既有定义类的特征，也有创建对象的特征，对前面代码的分析可以看出这个特点，因此可以调用匿名内部类的的方法。</p>
+</li>
+<li><p>可以直接访问外部类的所有成员，包含私有的</p>
+</li>
+<li><p>不能添加访问修饰符，因为他的地位就是一个局部变量</p>
+</li>
+<li><p>作用域：仅仅在定义它的方法或者代码块中</p>
+</li>
+<li><p>匿名内部类—-访问——&gt;外部类成员[访问方式：直接访问]</p>
+</li>
+<li><p>外部其他类—-不能访问——&gt;匿名内部类（因为 匿名内部类地位是一个局部变量）</p>
+</li>
+<li><p>如果外部类和内部类的成员重名时，内部类访问的话，默认遵循<strong>就近原则</strong>，如果想访问外部类的成员，则可以使用（<code>外部类名.this.成员</code>）去访问</p>
+</li>
+<li><p>匿名内部类包含了继承、多态、动态绑定、内部类的知识</p>
+</li>
+</ol>
+<h5 id="匿名内部类实践"><a href="#匿名内部类实践" class="headerlink" title="匿名内部类实践"></a>匿名内部类实践</h5><p>当作实参传递，简洁高效</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Bixlku/JavaStudyCode/tree/main/AnonymousInnerClass">匿名内部类示例代码</a></p>
+<h4 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h4><p>成员内部类是定义在外部类的成员位置，并且没有static修饰</p>
+<ol>
+<li><p>可以<strong>直接访问</strong>外部类的所有成员，包括私有的</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Outer01</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">class</span> <span class="token class-name">Inner01</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">cry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"调用cry方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>可以添加任意访问修饰符(public、private、默认、protected)，因为它的定义也是一个成员</p>
+</li>
+<li><p>作用域和外部类的其他成员一样，为<strong>整个类体</strong>。在外部类的成员方法中创建成员内部类对象，再调用方法</p>
+</li>
+<li><p>成员内部类—-访问——&gt;外部类成员[访问方式：直接访问]</p>
+</li>
+<li><p>外部类—-访问——&gt;内部类（访问方式：创建对象，再访问）</p>
+</li>
+<li><p>外部其他类—-访问——&gt;成员内部类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InnerClass</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Outer08</span> outer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Outer08</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//第一种方式，相当于把new Inner()当作是outer的成员，只是语法，不需要太仔细想</span>
+    <span class="token class-name">Outer08<span class="token punctuation">.</span>Inner</span> inner1 <span class="token operator">=</span> outer<span class="token punctuation">.</span><span class="token keyword">new</span> <span class="token class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//第一种外部其他类访问成员内部类的方方式</span>
+    <span class="token comment">//第二种方式，在外部类中，编写一个方法，可以返回Inner对象</span>
+    <span class="token class-name">Outer08<span class="token punctuation">.</span>Inner</span> inner2 <span class="token operator">=</span> outer<span class="token punctuation">.</span><span class="token function">getInnerInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//第二种外部其他类访问成员内部类的方方式</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Outer08</span><span class="token punctuation">&#123;</span><span class="token comment">//外部类</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Inner</span><span class="token punctuation">&#123;</span><span class="token comment">//内部类</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> in <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"调用Inner的say方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> <span class="token function">getInnerInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>如果外部类和内部类的成员重名时，内部类访问的话，默认遵循<strong>就近原则</strong>，如果想访问外部类的成员，则可以使用（<code>外部类名.this.成员</code>）去访问</p>
+</li>
+</ol>
+<h4 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h4><p>静态内部类是定义在外部类的成员位置，并且有static修饰</p>
+<ol>
+<li><p>可以直接访问外部类的所有静态成员，包括私有的，但不能直接访问<strong>非静态成员</strong></p>
+</li>
+<li><p>可以添加任意访问修饰符，因为它的地位就是一个成员</p>
+</li>
+<li><p>作用域：同其他的成员，为整个整体</p>
+</li>
+<li><p>静态内部类—-访问——&gt;外部类成员[访问方式：直接访问]</p>
+</li>
+<li><p>外部类—-访问——&gt;静态内部类（访问方式：创建对象，再访问）</p>
+</li>
+<li><p>外部其他类—-访问——&gt;静态内部类（因为 匿名内部类地位是一个局部变量）</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StaticInnerClass</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Outer01</span> outer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Outer01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//方式1. 因为静态内部类，是可以通过类名直接访问（前提是满足访问权限）</span>
+        <span class="token class-name">Outer01<span class="token punctuation">.</span>Inner01</span> inner01 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Outer01<span class="token punctuation">.</span>Inner01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        inner01<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//方式2. 编写一个方法，可以返回静态内部类的实例</span>
+        <span class="token class-name">Outer01<span class="token punctuation">.</span>Inner01</span> inner01Instance <span class="token operator">=</span> outer<span class="token punctuation">.</span><span class="token function">getInner01Instance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//使用非静态方法</span>
+        <span class="token class-name">Outer01<span class="token punctuation">.</span>Inner01</span> inner01Instance_ <span class="token operator">=</span> <span class="token class-name">Outer01</span><span class="token punctuation">.</span><span class="token function">getInner01Instance_</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//使用静态方法（如果不想创建一个外部对象可以直接这样用类名）</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Outer01</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Inner01</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"调用静态内部类的say方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner01</span> <span class="token function">getInner01Instance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Inner01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">static</span> <span class="token keyword">public</span> <span class="token class-name">Inner01</span> <span class="token function">getInner01Instance_</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Inner01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>如果外部类和内部类的成员重名时，内部类访问的话，默认遵循<strong>就近原则</strong>，如果想访问外部类的成员，则可以使用（<code>外部类名.成员</code>）去访问</p>
+</li>
+</ol>
 
                 
             </div>
@@ -1949,7 +2074,7 @@ animal <span class="token operator">=</span> <span class="token keyword">new</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.4k</span>&nbsp;字
+                class="white-color">11.7k</span>&nbsp;字
             
             
             
