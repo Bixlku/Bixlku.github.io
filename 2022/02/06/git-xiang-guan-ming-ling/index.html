@@ -454,14 +454,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-07
+                    2022-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    256
+                    314
                 </div>
                 
 
@@ -523,6 +523,17 @@ or
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> pull origin main//因为黑命贵，所以master改main了。。。。这里好坑<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>从本地push到远程仓库</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="gitignore文件"><a href="#gitignore文件" class="headerlink" title=".gitignore文件"></a>.gitignore文件</h2><p>当文件已经提交后才记起来没有写.gitignore文件的处理方法：</p>
+<ol>
+<li><p>```bash<br>git rm -r —cache . #不要忘了后面的那个”.”</p>
+<pre class="line-numbers language-none"><code class="language-none">
+2. &#96;&#96;&#96;bash
+   git add .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><pre><code class="lang-bash">git commit -m &quot;重新添加.gitignore文件&quot;
+</code></pre>
+</li>
+</ol>
 
                 
             </div>
@@ -988,7 +999,7 @@ or
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.1k</span>&nbsp;字
+                class="white-color">13.2k</span>&nbsp;字
             
             
             
